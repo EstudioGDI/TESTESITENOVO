@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio - Estúdio GDI</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Domine', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fdf7fa', 
+                            100: '#f8eef4', 
+                            200: '#eed3e4',
+                            500: '#a45587', 
+                            600: '#8c4571', 
+                            900: '#000000', 
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .filter-active {
+            background-color: #8c4571 !important;
+            color: white !important;
+            border-color: #8c4571 !important;
+        }
+        .gallery-item {
+            transition: all 0.4s ease-in-out;
+        }
+        .gallery-item.hidden {
+            opacity: 0;
+            transform: scale(0.9);
+            pointer-events: none;
+            position: absolute;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-brand-50 antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Navegação -->
+    <nav class="fixed w-full z-50 glass-nav border-b border-gray-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <a href="index.html" class="flex-shrink-0 flex items-center cursor-pointer">
+                    <img src="https://www.estudiogdi.com.br/imagens/logoestudiogdi-2.png" alt="Estúdio GDI Logo" class="h-12 w-auto object-contain">
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html#sobre" class="text-gray-600 hover:text-brand-600 font-medium transition-colors">Sobre Nós</a>
+                    <a href="index.html#servicos" class="text-gray-600 hover:text-brand-600 font-medium transition-colors">Serviços</a>
+                    <a href="#" class="text-brand-600 font-bold transition-colors border-b-2 border-brand-600">Portfólio</a>
+                    <a href="index.html#equipe" class="text-gray-600 hover:text-brand-600 font-medium transition-colors">Equipe</a>
+                    
+                    <!-- Botão Dropdown de Contato -->
+                    <div class="relative inline-block text-left">
+                        <button id="contact-btn" class="bg-brand-600 text-white px-5 py-2 rounded-full hover:bg-brand-500 font-medium transition-colors shadow-sm flex items-center gap-2">
+                            Contato
+                            <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-200" id="contact-chevron"></i>
+                        </button>
+                        
+                        <!-- Menu Dropdown -->
+                        <div id="contact-menu" class="hidden absolute right-0 mt-2 w-56 rounded-xl shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 transform opacity-0 scale-95 transition-all duration-200 origin-top-right z-50">
+                            <div class="py-1">
+                                <a href="mailto:contato@estudiogdi.com.br" class="group flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-brand-50 hover:text-brand-600 transition-colors">
+                                    <i data-lucide="mail" class="mr-3 h-5 w-5 text-gray-400 group-hover:text-brand-500 transition-colors"></i>
+                                    E-mail
+                                </a>
+                                <a href="#" target="_blank" class="group flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-brand-50 hover:text-brand-600 transition-colors">
+                                    <i data-lucide="message-circle" class="mr-3 h-5 w-5 text-gray-400 group-hover:text-brand-500 transition-colors"></i>
+                                    WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section do Portfólio -->
+    <section class="pt-32 pb-20 lg:pt-48 lg:pb-24 bg-white relative overflow-hidden border-b border-brand-100">
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-brand-50 transform skew-x-12 translate-x-20 opacity-50"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h1 class="font-serif text-4xl md:text-6xl lg:text-7xl font-bold text-brand-900 leading-tight mb-6">
+                Expertise técnica e <br class="hidden md:block"/> <span class="text-brand-600 italic">domínio criativo.</span>
+            </h1>
+            <p class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Da direção de arte e ilustrações para coleções didáticas ao rigor técnico do HTML para o PNLD. Unimos design de alta performance com processos validados pelas maiores editoras do país.
+            </p>
+        </div>
+    </section>
+
+    <!-- Histórico PNLD -->
+    <section class="py-24 bg-brand-900 text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-brand-600 rounded-full mix-blend-overlay filter blur-3xl opacity-20 transform translate-x-1/2 -translate-y-1/2"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-800 border border-brand-600 text-brand-200 text-sm font-medium mb-4">
+                    <i data-lucide="award" class="w-4 h-4"></i> Autoridade em Editais
+                </div>
+                <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">Nossa Trajetória no PNLD</h2>
+                <p class="text-lg text-brand-100">
+                    Acompanhamos a evolução dos editais, entregando soluções completas em diagramação, arte, ilustração e conversão W3C/Acessibilidade.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <!-- 2022 -->
+                <div class="bg-brand-800/50 border border-brand-700/50 p-6 rounded-2xl backdrop-blur-sm hover:bg-brand-800 transition-colors">
+                    <h3 class="font-serif text-3xl font-bold text-brand-400 mb-4">2022</h3>
+                    <ul class="space-y-4 text-sm text-brand-100">
+                        <li><strong class="text-white block mb-1">Escala:</strong> PNLD Literário (HTML) e EJA (Diagramação)</li>
+                        <li><strong class="text-white block mb-1">Universo dos Livros:</strong> PNLD Fundamental I (Acessibilidade)</li>
+                    </ul>
+                </div>
+                
+                <!-- 2023/24 -->
+                <div class="bg-brand-800/50 border border-brand-700/50 p-6 rounded-2xl backdrop-blur-sm hover:bg-brand-800 transition-colors">
+                    <h3 class="font-serif text-3xl font-bold text-brand-400 mb-4">2023 - 2024</h3>
+                    <ul class="space-y-4 text-sm text-brand-100">
+                        <li><strong class="text-white block mb-1">Escala / Casa de Letras / Trioleka:</strong> PNLD Literário e Equidade (HTML)</li>
+                    </ul>
+                </div>
+
+                <!-- 2026 -->
+                <div class="bg-brand-800/50 border border-brand-700/50 p-6 rounded-2xl backdrop-blur-sm hover:bg-brand-800 transition-colors">
+                    <h3 class="font-serif text-3xl font-bold text-brand-400 mb-4">2026</h3>
+                    <ul class="space-y-4 text-sm text-brand-100">
+                        <li><strong class="text-white block mb-1">Escala:</strong> Ensino Médio (Diagramação, Edição de Arte e OEDs)</li>
+                        <li><strong class="text-white block mb-1">Alfa Magazine:</strong> Literário Infantil (HTML)</li>
+                    </ul>
+                </div>
+
+                <!-- 2027-30 -->
+                <div class="bg-brand-800/50 border border-brand-500 p-6 rounded-2xl backdrop-blur-sm hover:bg-brand-800 transition-colors border-t-4 shadow-xl">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="font-serif text-3xl font-bold text-white">2027-30</h3>
+                        <span class="bg-brand-500 text-[10px] px-2 py-1 rounded font-bold">EM PRODUÇÃO</span>
+                    </div>
+                    <ul class="space-y-4 text-sm text-brand-100">
+                        <li>
+                            <strong class="text-white block mb-1">Escala - Fundamental I:</strong>
+                            Produção integral de Português e Matemática (Arte, Ilustrações e OEDs).
+                        </li>
+                        <li><strong class="text-white">Casa de Letras / Universo:</strong> Fundamental I (HTML e OED)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Chancelas (Logos dos parceiros de edital) -->
+            <div class="flex flex-wrap justify-center items-center gap-8 pt-8 border-t border-brand-800/50 opacity-60">
+                <img src="https://assineescala.com.br/wp-content/uploads/2023/01/Logo-Sazonal-Escala.png" alt="Escala" class="h-8 object-contain mix-blend-luminosity">
+                <img src="https://hachura.com.br/assets/img/clients/Cliente-casadeletras.png" alt="Casa de Letras" class="h-8 object-contain mix-blend-luminosity">
+                <img src="https://zxn6wl55cd.ufs.sh/f/IaHBuKP5IroYHLTHmjanDg0QE3VY1T6fiGLbwxua2KI854hF" alt="Universo dos Livros" class="h-8 object-contain mix-blend-luminosity">
+            </div>
+        </div>
+    </section>
+
+    <!-- Case ICL: Obras de Prestígio -->
+    <section class="py-24 bg-brand-50 border-b border-brand-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div class="max-w-2xl">
+                    <span class="text-brand-600 font-bold uppercase tracking-widest text-sm">Cuidado Tipográfico e Estético</span>
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold text-brand-900 mt-2 mb-4">Projetos de Alto Impacto</h2>
+                    <p class="text-lg text-gray-600">
+                        Nossa parceria com a <strong>ICL</strong> demonstra o rigor técnico aplicado à diagramação de obras densas e best-sellers de autores mundialmente reconhecidos.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="group cursor-pointer">
+                    <div class="bg-gray-200 aspect-[3/4] rounded-xl overflow-hidden shadow-sm group-hover:shadow-xl transition-all duration-300 mb-6 border border-gray-100">
+                        <!-- Substituir pela capa do Chomsky -->
+                        <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=800&q=80" alt="Noam Chomsky" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 mix-blend-multiply">
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-brand-900 mb-1">Como Parar o Relógio do Juízo Final</h3>
+                    <p class="text-sm font-medium text-brand-600 mb-2">Noam Chomsky</p>
+                </div>
+
+                <div class="group cursor-pointer">
+                    <div class="bg-gray-200 aspect-[3/4] rounded-xl overflow-hidden shadow-sm group-hover:shadow-xl transition-all duration-300 mb-6 border border-gray-100">
+                        <!-- Substituir pela capa do Barry Schwartz -->
+                        <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=800&q=80" alt="Barry Schwartz" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 mix-blend-multiply">
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-brand-900 mb-1">O Paradoxo da Escolha</h3>
+                    <p class="text-sm font-medium text-brand-600 mb-2">Barry Schwartz</p>
+                </div>
+
+                <div class="group cursor-pointer">
+                    <div class="bg-gray-200 aspect-[3/4] rounded-xl overflow-hidden shadow-sm group-hover:shadow-xl transition-all duration-300 mb-6 border border-gray-100">
+                        <!-- Substituir pela capa do Eduardo Moreira -->
+                        <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=800&q=80" alt="Eduardo Moreira" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 mix-blend-multiply">
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-brand-900 mb-1">A Vida é Sua</h3>
+                    <p class="text-sm font-medium text-brand-600 mb-2">Eduardo Moreira</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Lafonte: Larga Escala -->
+    <section class="py-24 bg-white border-b border-brand-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1 relative">
+                    <!-- Composição de Imagens: E-reader e capas -->
+                    <div class="bg-brand-50 rounded-2xl p-8 border border-brand-100 relative">
+                        <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80" alt="Tablet com Ebook" class="rounded-xl shadow-2xl relative z-10 w-full object-cover h-80">
+                        <!-- Elemento decorativo atrás -->
+                        <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-brand-500 rounded-full mix-blend-multiply opacity-20 filter blur-xl"></div>
+                    </div>
+                </div>
+                
+                <div class="order-1 lg:order-2">
+                    <span class="text-brand-600 font-bold uppercase tracking-widest text-sm">Volume e Consistência</span>
+                    <h2 class="font-serif text-4xl font-bold text-brand-900 mt-4 mb-6">Larga Escala com Precisão</h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        Como um dos principais fornecedores do Grupo Escala, gerenciamos a esteira contínua de conversão digital para o selo literário <strong>Lafonte</strong>.
+                    </p>
+                    <ul class="space-y-4 text-gray-600">
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle-2" class="w-6 h-6 text-brand-500 mr-3 flex-shrink-0 mt-0.5"></i>
+                            <span><strong>Alto Volume:</strong> Entrega ágil de centenas de títulos anuais adaptados para ePub e MOBI.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle-2" class="w-6 h-6 text-brand-500 mr-3 flex-shrink-0 mt-0.5"></i>
+                            <span><strong>Qualidade Garantida:</strong> Código limpo que garante leitura perfeita no Kindle, Kobo e Apple Books sem quebra de formatação.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle-2" class="w-6 h-6 text-brand-500 mr-3 flex-shrink-0 mt-0.5"></i>
+                            <span><strong>Eficiência:</strong> Fluxo otimizado que absorve picos de demanda da editora sem onerar a equipe de arte interna.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case PNLD 2027: Produção Integrada -->
+    <section class="py-24 bg-brand-50 border-b border-brand-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <div class="order-1 lg:order-1">
+                    <span class="text-brand-600 font-bold uppercase tracking-widest text-sm">Case de Sucesso: PNLD 2027-30</span>
+                    <h2 class="font-serif text-4xl font-bold text-brand-900 mt-4 mb-6">Produção Editorial Integrada</h2>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Assumimos a produção complexa das coleções didáticas de <strong>Português e Matemática (Anos Iniciais)</strong> para o Grupo Escala, unindo rigor pedagógico a um projeto visual atrativo para crianças.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
+                        <div class="bg-white p-5 rounded-xl border border-brand-100 shadow-sm">
+                            <i data-lucide="palette" class="w-8 h-8 text-brand-500 mb-3"></i>
+                            <h4 class="font-bold text-brand-900 mb-1">Edição de Arte & Ilustração</h4>
+                            <p class="text-sm text-gray-500">Criação de identidade visual, mascotes e ativos originais pedagógicos.</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-xl border border-brand-100 shadow-sm">
+                            <i data-lucide="layout" class="w-8 h-8 text-brand-500 mb-3"></i>
+                            <h4 class="font-bold text-brand-900 mb-1">Diagramação Complexa</h4>
+                            <p class="text-sm text-gray-500">Estruturação de boxes, atividades e respiros focados em fluidez de leitura.</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-xl border border-brand-100 shadow-sm sm:col-span-2">
+                            <i data-lucide="mouse-pointer-2" class="w-8 h-8 text-brand-500 mb-3"></i>
+                            <h4 class="font-bold text-brand-900 mb-1">Objetos Educacionais Digitais (OEDs)</h4>
+                            <p class="text-sm text-gray-500">Desenvolvimento de jogos e simuladores interativos que complementam o material impresso, exigência crucial dos novos editais.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative order-2 lg:order-2">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-4">
+                            <!-- Substituir por ilustração de Matemática/Português -->
+                            <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=400&q=80" alt="Ilustração Educacional" class="rounded-xl shadow-lg w-full h-64 object-cover">
+                            <!-- Substituir por página diagramada -->
+                            <img src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&w=400&q=80" alt="Diagramação Matemática" class="rounded-xl shadow-md w-full h-48 object-cover">
+                        </div>
+                        <div class="space-y-4 pt-12">
+                            <!-- Substituir por detalhes de arte -->
+                            <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=400&q=80" alt="Edição de Arte Português" class="rounded-xl shadow-lg w-full h-48 object-cover">
+                            <!-- Substituir por print de OED funcionando -->
+                            <img src="https://images.unsplash.com/photo-1627556704302-624286467c65?auto=format&fit=crop&w=400&q=80" alt="OED Digital" class="rounded-xl shadow-md w-full h-64 object-cover">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria Filtrável -->
+    <section class="py-24 bg-white" id="galeria">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-brand-900 mb-8">Acervo de Produção</h2>
+                
+                <!-- Filtros -->
+                <div class="flex flex-wrap justify-center gap-3" id="filter-container">
+                    <button class="filter-btn filter-active px-6 py-2 rounded-full border border-gray-300 text-sm font-medium text-gray-600 hover:border-brand-600 hover:text-brand-600 transition-colors" data-filter="all">Todos</button>
+                    <button class="filter-btn px-6 py-2 rounded-full border border-gray-300 text-sm font-medium text-gray-600 hover:border-brand-600 hover:text-brand-600 transition-colors" data-filter="html">HTML / PNLD</button>
+                    <button class="filter-btn px-6 py-2 rounded-full border border-gray-300 text-sm font-medium text-gray-600 hover:border-brand-600 hover:text-brand-600 transition-colors" data-filter="diagramacao">Diagramação</button>
+                    <button class="filter-btn px-6 py-2 rounded-full border border-gray-300 text-sm font-medium text-gray-600 hover:border-brand-600 hover:text-brand-600 transition-colors" data-filter="ebook">E-books / Lafonte</button>
+                </div>
+            </div>
+
+            <!-- Grid de Imagens -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative" id="gallery-grid">
+                
+                <!-- Item 1: HTML Literário -->
+                <div class="gallery-item html relative rounded-xl overflow-hidden group aspect-[3/4] bg-gray-100 border border-gray-200">
+                    <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=600&q=80" alt="A Máquina do Tempo" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-brand-900/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-brand-200 text-[10px] font-bold uppercase tracking-widest mb-1">Escala / Hachura</span>
+                        <h4 class="text-white font-serif text-lg font-bold leading-tight">A Máquina do Tempo</h4>
+                        <p class="text-gray-300 text-xs mt-2">Conversão HTML5 (Literário)</p>
+                    </div>
+                </div>
+
+                <!-- Item 2: Diagramação Wisdom -->
+                <div class="gallery-item diagramacao relative rounded-xl overflow-hidden group aspect-[3/4] bg-gray-100 border border-gray-200">
+                    <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=600&q=80" alt="Projeto Diagramação" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-brand-900/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-brand-200 text-[10px] font-bold uppercase tracking-widest mb-1">Editora Wisdom</span>
+                        <h4 class="text-white font-serif text-lg font-bold leading-tight">Material Didático</h4>
+                        <p class="text-gray-300 text-xs mt-2">Diagramação</p>
+                    </div>
+                </div>
+
+                <!-- Item 3: E-book Lafonte -->
+                <div class="gallery-item ebook relative rounded-xl overflow-hidden group aspect-[3/4] bg-gray-100 border border-gray-200">
+                    <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=600&q=80" alt="E-book Lafonte" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-brand-900/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-brand-200 text-[10px] font-bold uppercase tracking-widest mb-1">Editora Lafonte</span>
+                        <h4 class="text-white font-serif text-lg font-bold leading-tight">Coleção Clássicos</h4>
+                        <p class="text-gray-300 text-xs mt-2">Conversão ePub/MOBI</p>
+                    </div>
+                </div>
+
+                <!-- Item 4: HTML Casa de Letras -->
+                <div class="gallery-item html relative rounded-xl overflow-hidden group aspect-[3/4] bg-gray-100 border border-gray-200">
+                    <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=600&q=80" alt="Casa de Letras" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-brand-900/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-brand-200 text-[10px] font-bold uppercase tracking-widest mb-1">Casa de Letras</span>
+                        <h4 class="text-white font-serif text-lg font-bold leading-tight">Coleção Fundamental</h4>
+                        <p class="text-gray-300 text-xs mt-2">Conversão HTML e Acessibilidade</p>
+                    </div>
+                </div>
+                
+                <!-- Item 5: Diagramação SEI -->
+                <div class="gallery-item diagramacao relative rounded-xl overflow-hidden group aspect-[3/4] bg-gray-100 border border-gray-200">
+                    <img src="https://images.unsplash.com/photo-1629196914225-ebdd47385a49?auto=format&fit=crop&w=600&q=80" alt="Editora SEI" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-brand-900/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-brand-200 text-[10px] font-bold uppercase tracking-widest mb-1">Editora SEI</span>
+                        <h4 class="text-white font-serif text-lg font-bold leading-tight">Apostilas de Ensino</h4>
+                        <p class="text-gray-300 text-xs mt-2">Projeto Gráfico e Diagramação</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-50 text-gray-600 py-12 border-t border-brand-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <img src="https://www.estudiogdi.com.br/imagens/logoestudiogdi-2.png" alt="Estúdio GDI Logo" class="h-10 w-auto object-contain">
+            </div>
+            <div class="flex gap-6">
+                <a href="index.html#contato" class="text-sm font-medium hover:text-brand-600 transition-colors">Falar com a equipe</a>
+            </div>
+            <p class="text-sm">
+                &copy; <script>document.write(new Date().getFullYear())</script> Estúdio GDI. Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        lucide.createIcons();
+
+        // Lógica do Dropdown de Contato
+        const contactBtn = document.getElementById('contact-btn');
+        const contactMenu = document.getElementById('contact-menu');
+        const contactChevron = document.getElementById('contact-chevron');
+
+        contactBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isHidden = contactMenu.classList.contains('hidden');
+            
+            if (isHidden) {
+                contactMenu.classList.remove('hidden');
+                // Pequeno delay para a transição de opacidade/escala funcionar após remover o hidden
+                setTimeout(() => {
+                    contactMenu.classList.remove('opacity-0', 'scale-95');
+                    contactMenu.classList.add('opacity-100', 'scale-100');
+                    contactChevron.classList.add('rotate-180');
+                }, 10);
+            } else {
+                closeDropdown();
+            }
+        });
+
+        function closeDropdown() {
+            contactMenu.classList.remove('opacity-100', 'scale-100');
+            contactMenu.classList.add('opacity-0', 'scale-95');
+            contactChevron.classList.remove('rotate-180');
+            setTimeout(() => {
+                contactMenu.classList.add('hidden');
+            }, 200); // aguarda a transição terminar
+        }
+
+        // Fechar ao clicar fora
+        document.addEventListener('click', (e) => {
+            if (!contactBtn.contains(e.target) && !contactMenu.contains(e.target) && !contactMenu.classList.contains('hidden')) {
+                closeDropdown();
+            }
+        });
+
+        // Lógica de Filtro da Galeria
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Atualiza botões ativos
+                    filterBtns.forEach(b => b.classList.remove('filter-active'));
+                    btn.classList.add('filter-active');
+
+                    const filterValue = btn.getAttribute('data-filter');
+
+                    galleryItems.forEach(item => {
+                        if (filterValue === 'all') {
+                            item.style.display = 'block';
+                            setTimeout(() => { item.classList.remove('hidden'); }, 50);
+                        } else {
+                            if (item.classList.contains(filterValue)) {
+                                item.style.display = 'block';
+                                setTimeout(() => { item.classList.remove('hidden'); }, 50);
+                            } else {
+                                item.classList.add('hidden');
+                                setTimeout(() => { item.style.display = 'none'; }, 400); // 400ms match the CSS transition
+                            }
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
