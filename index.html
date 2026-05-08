@@ -11,7 +11,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="icon" href="https://zxn6wl55cd.ufs.sh/f/IaHBuKP5IroYeMz4g5LqUEji9xs830FZCQOkHPI6zTAm72YL" type="image/png">
+    <link rel="apple-touch-icon" sizes="180x180" href="recursos/imagens/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="recursos/imagens/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="recursos/imagens/favicon-16x16.png">
+    <link rel="manifest" href="recursos/imagens/site.webmanifest">
+    <link rel="icon" type="image/x-icon" href="recursos/imagens/favicon.ico">
+
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <script>
@@ -67,7 +72,27 @@
                     <a href="#servicos" class="text-gray-600 hover:text-brand-600 font-medium transition-colors">Serviços</a>
                     <a href="portfolio.html" class="text-gray-600 hover:text-brand-600 font-medium transition-colors">Portfólio</a>
                     <a href="#equipe" class="text-gray-600 hover:text-brand-600 font-medium transition-colors">Equipe</a>
-                    <a href="#contato" class="bg-brand-600 text-white px-5 py-2 rounded-full hover:bg-brand-500 font-medium transition-colors shadow-sm">Contato</a>
+<!-- Botão Dropdown de Contato -->
+                    <div class="relative inline-block text-left">
+                        <button id="contact-btn" class="bg-brand-600 text-white px-5 py-2 rounded-full hover:bg-brand-500 font-medium transition-colors shadow-sm flex items-center gap-2">
+                            Contato
+                            <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-200" id="contact-chevron"></i>
+                        </button>
+                        
+                        <!-- Menu Dropdown -->
+                        <div id="contact-menu" class="hidden absolute right-0 mt-2 w-56 rounded-xl shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 transform opacity-0 scale-95 transition-all duration-200 origin-top-right z-50">
+                            <div class="py-1">
+                                <a href="mailto:contato@estudiogdi.com.br" class="group flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-brand-50 hover:text-brand-600 transition-colors">
+                                    <i data-lucide="mail" class="mr-3 h-5 w-5 text-gray-400 group-hover:text-brand-500 transition-colors"></i>
+                                    E-mail
+                                </a>
+                                <a href="#" target="_blank" class="group flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-brand-50 hover:text-brand-600 transition-colors">
+                                    <i data-lucide="message-circle" class="mr-3 h-5 w-5 text-gray-400 group-hover:text-brand-500 transition-colors"></i>
+                                    WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -510,6 +535,44 @@
 
             // Iniciar Autoplay
             resetAutoPlay();
+                    // Lógica do Dropdown de Contato
+        const contactBtn = document.getElementById('contact-btn');
+        const contactMenu = document.getElementById('contact-menu');
+        const contactChevron = document.getElementById('contact-chevron');
+
+        contactBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isHidden = contactMenu.classList.contains('hidden');
+            
+            if (isHidden) {
+                contactMenu.classList.remove('hidden');
+                // Pequeno delay para a transição de opacidade/escala funcionar após remover o hidden
+                setTimeout(() => {
+                    contactMenu.classList.remove('opacity-0', 'scale-95');
+                    contactMenu.classList.add('opacity-100', 'scale-100');
+                    contactChevron.classList.add('rotate-180');
+                }, 10);
+            } else {
+                closeDropdown();
+            }
+        });
+
+        function closeDropdown() {
+            contactMenu.classList.remove('opacity-100', 'scale-100');
+            contactMenu.classList.add('opacity-0', 'scale-95');
+            contactChevron.classList.remove('rotate-180');
+            setTimeout(() => {
+                contactMenu.classList.add('hidden');
+            }, 200); // aguarda a transição terminar
+        }
+
+        // Fechar ao clicar fora
+        document.addEventListener('click', (e) => {
+            if (!contactBtn.contains(e.target) && !contactMenu.contains(e.target) && !contactMenu.classList.contains('hidden')) {
+                closeDropdown();
+            }
+        });
+
         });
     </script>
 </body>
