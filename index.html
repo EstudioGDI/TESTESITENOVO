@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
 <head>
@@ -5,16 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estúdio GDI - Design Editorial</title>
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="https://zxn6wl55cd.ufs.sh/f/IaHBuKP5IroY60d8xfbvSEnHBAso47p0Gg13aJ9QTcK2qXDb" />
-
-    <!-- Lucide Icons -->
+    <link rel="icon" href="https://zxn6wl55cd.ufs.sh/f/IaHBuKP5IroYeMz4g5LqUEji9xs830FZCQOkHPI6zTAm72YL" type="image/png">
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <script>
@@ -27,12 +24,12 @@
                     },
                     colors: {
                         brand: {
-                            50: '#fdf7fa', // Fundo super claro (branco rosado)
+                            50: '#fdf7fa', 
                             100: '#f8eef4', 
                             200: '#eed3e4',
-                            500: '#a45587', // Cor principal (Magenta da paleta)
-                            600: '#8c4571', // Tom mais escuro para hover
-                            900: '#000000', // Preto da paleta
+                            500: '#a45587', 
+                            600: '#8c4571', 
+                            900: '#000000', 
                         }
                     }
                 }
@@ -43,23 +40,32 @@
     <style>
         .glass-nav {
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(1px);
+        }
+        /* Nova animação para o Hero */
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .bg-carousel {
+            display: flex;
+            animation: scroll-left 50s linear infinite;
+            width: max-content;
         }
     </style>
 </head>
 <body class="font-sans text-gray-800 bg-brand-50 antialiased selection:bg-brand-500 selection:text-white">
 
-    <!-- Navegação -->
     <nav class="fixed w-full z-50 glass-nav border-b border-gray-200 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
                     <img src="https://www.estudiogdi.com.br/imagens/logoestudiogdi-2.png" alt="Estúdio GDI Logo" class="h-12 w-auto object-contain">
                 </div>
-                <div class="hidden md:flex space-x-8">
+                <div class="hidden md:flex items-center space-x-8">
                     <a href="#sobre" class="text-gray-600 hover:text-brand-600 font-medium transition-colors">Sobre Nós</a>
                     <a href="#servicos" class="text-gray-600 hover:text-brand-600 font-medium transition-colors">Serviços</a>
-                    <a href="https://www.estudiogdi.com.br" class="text-gray-600 hover:text-brand-600 font-medium transition-colors">Portfólio</a>
+                    <a href="portfolio.html" class="text-gray-600 hover:text-brand-600 font-medium transition-colors">Portfólio</a>
                     <a href="#equipe" class="text-gray-600 hover:text-brand-600 font-medium transition-colors">Equipe</a>
                     <a href="#contato" class="bg-brand-600 text-white px-5 py-2 rounded-full hover:bg-brand-500 font-medium transition-colors shadow-sm">Contato</a>
                 </div>
@@ -67,30 +73,48 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden relative">
-        <div class="absolute top-0 left-0 w-full h-full bg-brand-50 -z-10">
-            <div class="absolute top-0 right-0 w-1/2 h-full bg-brand-100 transform skew-x-12 translate-x-20 opacity-50"></div>
+    <section class="pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden relative min-h-[80vh] flex items-center justify-center">
+        
+        <div class="absolute inset-0 -z-20 bg-brand-900 overflow-hidden flex items-center justify-center">
+            <div class="bg-carousel gap-4 h-[150%] -rotate-6 scale-110 opacity-30 blur-[6px]">
+                
+                <img src="https://zxn6wl55cd.ufs.sh/f/IaHBuKP5IroYi14nvPFDMBtVaLmnCG56ZXjHOKlp9c7As2zW" alt="Work" class="h-full w-auto object-cover rounded-2xl">
+                <img src="https://zxn6wl55cd.ufs.sh/f/IaHBuKP5IroYdq23FpgGrn1he4pQFvfmbK7gV3ct9ZH028wk" alt="Work" class="h-full w-auto object-cover rounded-2xl">
+                <img src="https://zxn6wl55cd.ufs.sh/f/IaHBuKP5IroYe5QwANLqUEji9xs830FZCQOkHPI6zTAm72YL" alt="Work" class="h-full w-auto object-cover rounded-2xl">
+                <img src="https://zxn6wl55cd.ufs.sh/f/IaHBuKP5IroYGwhKXd7yrMlnODCKizVRxUshY3paf749S1JP" alt="Work" class="h-full w-auto object-cover rounded-2xl">
+                <img src="https://zxn6wl55cd.ufs.sh/f/IaHBuKP5IroYXpbEJK3CILQUMa7yFENPRxKAcObfGZoCi0Tw" alt="Work" class="h-full w-auto object-cover rounded-2xl">
+                
+                <img src="https://zxn6wl55cd.ufs.sh/f/IaHBuKP5IroYyVo52Eer2cD5AVvG4TYJFbWa7x9PmijOXZyn" alt="Work" class="h-full w-auto object-cover rounded-2xl">
+                <img src="https://zxn6wl55cd.ufs.sh/f/IaHBuKP5IroYYG6GxUhn4q5nLgTxMVHWXRcSka8dyFewCNt2" alt="Work" class="h-full w-auto object-cover rounded-2xl">
+                <img src="https://zxn6wl55cd.ufs.sh/f/IaHBuKP5IroYhyt8Qn7doaDxR517Kp246P0ICHfFrm3VqNkZ" alt="Work" class="h-full w-auto object-cover rounded-2xl">
+                <img src="https://zxn6wl55cd.ufs.sh/f/IaHBuKP5IroYIMkCu2P5IroYdyOkb3W6CZzHTPLa9NDQp8it" alt="Work" class="h-full w-auto object-cover rounded-2xl">
+                <img src="https://zxn6wl55cd.ufs.sh/f/IaHBuKP5IroYdo8znEgGrn1he4pQFvfmbK7gV3ct9ZH028wk" alt="Work" class="h-full w-auto object-cover rounded-2xl">                
+            </div>
         </div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-brand-900 leading-tight mb-6">
-                Design com foco na <br class="hidden md:block"/> <span class="text-brand-600 ">Produção Editorial</span>
+
+        <div class="absolute inset-0 -z-10 bg-gradient-to-b from-brand-900/80 via-brand-900/60 to-brand-50"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h1 class="font-serif text-5xl leading-tight 
+           md:text-6xl md:leading-tight 
+           lg:text-7xl lg:leading-tight font-bold mb-6">
+                <span class="text-white">Design com foco na</span> <br class="hidden md:block"/> 
+                <span class="bg-brand-500 px-2 py-1 rounded my-8 text-white">Produção Editorial</span>
             </h1>
-            <p class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p class="mt-4 text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
                 O Estúdio GDI é um estúdio de design voltado para a produção editorial de livros, e-books, revistas, catálogos, manuais, dentre outros; com vasta experiência na confecção de livros didáticos e literários.
             </p>
-            <div class="mt-10 flex justify-center gap-4">
-                <a href="#contato" class="bg-brand-600 text-white px-8 py-3 rounded-full hover:bg-brand-500 font-medium transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-200">
+            <div class="mt-10 flex flex-wrap justify-center gap-4">
+                <a href="#contato" class="bg-brand-500 text-white px-8 py-3 rounded-full hover:bg-brand-400 font-medium transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-200 border border-brand-400/50">
                     Fale Conosco
                 </a>
-                <a href="https://www.estudiogdi.com.br" class="bg-white text-brand-600 border border-brand-200 px-8 py-3 rounded-full hover:bg-brand-50 font-medium transition-colors shadow-sm">
+                <a href="portfolio.html" class="bg-white/10 backdrop-blur-md text-white border border-white/30 px-8 py-3 rounded-full hover:bg-white/20 font-medium transition-colors shadow-sm">
                     Ver Portfólio
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Sobre Nós -->
     <section id="sobre" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -115,7 +139,6 @@
         </div>
     </section>
 
-    <!-- Serviços (Carrossel) -->
     <section id="servicos" class="py-20 bg-brand-50 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12">
@@ -123,13 +146,10 @@
                 <p class="text-lg text-gray-600">Conheça nossas principais frentes de atuação na produção editorial.</p>
             </div>
 
-            <!-- Container do Carrossel -->
             <div class="relative w-full max-w-5xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden group">
                 
-                <!-- Slides -->
                 <div id="servicesCarousel" class="flex transition-transform duration-700 ease-in-out">
                     
-                    <!-- Slide 1: Diagramação e Edição de Arte -->
                     <div class="w-full flex-shrink-0 flex flex-col md:flex-row">
                         <div class="md:w-1/2 h-64 md:h-auto bg-gray-200 relative">
                             <img src="https://zxn6wl55cd.ufs.sh/f/IaHBuKP5IroYJBB3dsk17Zj4bVSA5wT0LoknfsERyvtpBF9m" alt="Diagramação e Edição de Arte" class="w-full h-full object-cover">
@@ -146,7 +166,6 @@
                         </div>
                     </div>
 
-                    <!-- Slide 2: Conversão de HTML com acessibilidade -->
                     <div class="w-full flex-shrink-0 flex flex-col md:flex-row">
                         <div class="md:w-1/2 h-64 md:h-auto bg-gray-200 relative">
                             <img src="https://zxn6wl55cd.ufs.sh/f/IaHBuKP5IroY3V3h7vYtB9hg7iOT5dNK8PXCFyArWznejVuL" alt="Conversão de HTML com acessibilidade" class="w-full h-full object-cover">
@@ -163,7 +182,6 @@
                         </div>
                     </div>
 
-                    <!-- Slide 3: Conversão de E-books -->
                     <div class="w-full flex-shrink-0 flex flex-col md:flex-row">
                         <div class="md:w-1/2 h-64 md:h-auto bg-gray-200 relative">
                             <img src="https://zxn6wl55cd.ufs.sh/f/IaHBuKP5IroY1lTIJL97JkVUTP0zmvA28Lps5grYGlDfEQMq" alt="Conversão de E-books" class="w-full h-full object-cover">
@@ -182,7 +200,6 @@
 
                 </div>
 
-                <!-- Controles do Carrossel -->
                 <button id="prevSlide" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-brand-600 w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all z-10 backdrop-blur-sm">
                     <i data-lucide="chevron-left"></i>
                 </button>
@@ -190,7 +207,6 @@
                     <i data-lucide="chevron-right"></i>
                 </button>
                 
-                <!-- Indicadores -->
                 <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
                     <button class="w-2.5 h-2.5 rounded-full bg-brand-600 transition-colors carousel-dot" data-index="0"></button>
                     <button class="w-2.5 h-2.5 rounded-full bg-gray-300 transition-colors carousel-dot" data-index="1"></button>
@@ -200,16 +216,13 @@
         </div>
     </section>
 
-    <!-- TOMO HTML Maker -->
     <section id="tomo" class="py-24 bg-brand-900 text-white relative overflow-hidden">
-        <!-- Elementos decorativos de fundo -->
         <div class="absolute top-0 right-0 w-96 h-96 bg-brand-600 rounded-full mix-blend-overlay filter blur-3xl opacity-30 transform translate-x-1/3 -translate-y-1/3"></div>
         <div class="absolute bottom-0 left-0 w-96 h-96 bg-brand-500 rounded-full mix-blend-overlay filter blur-3xl opacity-30 transform -translate-x-1/3 translate-y-1/3"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 
-                <!-- Texto -->
                 <div>
                     
                     <div class="mb-8 flex flex-row items-center gap-4">
@@ -242,9 +255,9 @@
                                 </div>
                             </div>
                             <div>
-                                <h4 class="text-lg font-bold text-white mb-1">Qualidade No-Code com Controle Fino</h4>
+                                <h4 class="text-lg font-bold text-white mb-1">Tecnologia Proprietária de Alta Performance</h4>
                                 <p class="text-brand-200 text-sm leading-relaxed">
-                                    Desenvolvida com base no framework GrapeJS, permite maior paridade e qualidade de design no mercado. Produção visual sem necessidade de códigos, garantindo controle preciso sem depender de IA generativa.
+                                    Construído sobre um motor visual de arquitetura fechada, o TOMO foi desenvolvido internamente para garantir total controle do design. A nossa plataforma no-code blinda o seu projeto gráfico contra os engessamentos típicos de scripts de automação.
                                 </p>
                             </div>
                         </div>
@@ -293,7 +306,6 @@
                     </div>
                 </div>
 
-                <!-- Imagem/Mockup da Ferramenta -->
                 <div class="relative">
                     <div class="bg-brand-800 border border-brand-600 rounded-xl p-2 shadow-2xl relative z-10 transform lg:-rotate-2 transition-transform hover:rotate-0 duration-500">
                         <div class="flex gap-2 mb-2 px-2 pt-1">
@@ -303,7 +315,6 @@
                         </div>
                         <img src="https://zxn6wl55cd.ufs.sh/f/IaHBuKP5IroY3FXQLbYtB9hg7iOT5dNK8PXCFyArWznejVuL" alt="Interface TOMO HTML Maker" class="rounded-lg w-full h-auto opacity-90 mix-blend-luminosity hover:mix-blend-normal transition-all duration-500">
                     </div>
-                    <!-- Blob decorativo atrás da imagem -->
                     <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-brand-600 to-brand-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 -z-10"></div>
                 </div>
 
@@ -311,7 +322,6 @@
         </div>
     </section>
 
-    <!-- Clientes -->
     <section class="py-20 bg-brand-50 border-t border-brand-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
             <h2 class="font-serif text-3xl font-bold text-brand-900 mb-4">Nossos Clientes</h2>
@@ -320,25 +330,24 @@
             </p>
         </div>
         
-        <!-- Faixa Branca 100vw -->
         <div class="w-full bg-white py-12 shadow-sm border-y border-brand-100/50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center">
-                <!-- Layout Flex para centralizar perfeitamente logos de tamanhos variados -->
                 <div class="flex flex-wrap justify-center items-center gap-10 md:gap-16 max-w-5xl">
+                    <img src="https://cdn.prod.website-files.com/6810e8cd1c64e82623876ba8/681134835142ef28e05b06ba_logo-arco-dark.svg" alt="Arco Educação" class="h-10 md:h-14 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+                    <img src="https://hachura.com.br/assets/img/clients/Cliente-santillana.png" alt="Santillana" class="h-10 md:h-14 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+                    <img src="https://zxn6wl55cd.ufs.sh/f/IaHBuKP5IroY7r8Ca3AhzrI2UdVJuDl4f5XbPOLH6eRnok0v" alt="ICL" class="h-10 md:h-14 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+                    <img src="https://assineescala.com.br/wp-content/uploads/2023/01/Logo-Sazonal-Escala.png" alt="Escala" class="h-10 md:h-14 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
                     <img src="https://zxn6wl55cd.ufs.sh/f/IaHBuKP5IroYHLTHmjanDg0QE3VY1T6fiGLbwxua2KI854hF" alt="Editora Universo Educação" class="h-10 md:h-14 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
                     <img src="https://hachura.com.br/assets/img/clients/Cliente-casadeletras.png" alt="Casa de Letras" class="h-10 md:h-14 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
-                    <img src="https://assineescala.com.br/wp-content/uploads/2023/01/Logo-Sazonal-Escala.png" alt="Escala" class="h-10 md:h-14 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+                    <img src="https://zxn6wl55cd.ufs.sh/f/IaHBuKP5IroYf8Mcb2EvUKoGzpqxa84OdT0isJwjPWMNbDgH" alt="Editora Lafonte" class="h-10 md:h-14 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+                    <img src="https://zxn6wl55cd.ufs.sh/f/IaHBuKP5IroYr19MxicioE93GvDSNuAZ4K7mLqjxdMapIzXe" alt="Hachura" class="h-10 md:h-14 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
                     <img src="https://editorasei.com.br/images/logo/7b67e6c01506b4b77f99533f1d40cda1.png" alt="Editora SEI" class="h-10 md:h-14 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
                     <img src="https://editorawisdom.com.br/images/logo/ff51795312e8b42bc391a7f484dd06f0.png" alt="Editora Wisdom" class="h-10 md:h-14 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
-                    <img src="https://zxn6wl55cd.ufs.sh/f/IaHBuKP5IroYr19MxicioE93GvDSNuAZ4K7mLqjxdMapIzXe" alt="Hachura" class="h-10 md:h-14 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
-                    <img src="https://hachura.com.br/assets/img/clients/Cliente-santillana.png" alt="Santillana" class="h-10 md:h-14 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
-                    <img src="https://zxn6wl55cd.ufs.sh/f/IaHBuKP5IroYf8Mcb2EvUKoGzpqxa84OdT0isJwjPWMNbDgH" alt="Editora Lafonte" class="h-10 md:h-14 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Equipe -->
     <section id="equipe" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
@@ -351,42 +360,68 @@
                 </p>
             </div>
 
-            <!-- Grid de Equipe -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 max-w-5xl mx-auto">
-                <!-- Membro 1 -->
+            <div class="py-12 shadow-sm border-y border-brand-100/50">
                 <div class="text-center group">
-                    <div class="relative w-40 h-40 mx-auto rounded-full bg-gray-100 overflow-hidden mb-6 flex items-center justify-center text-gray-400 shadow-md">
-                        <i data-lucide="user" class="w-10 h-10 absolute"></i>
-                        <img src="URL_FOTO_EQUIPE_1" alt="Membro da Equipe" class="w-full h-full object-cover relative z-10 opacity-0" onload="this.classList.remove('opacity-0')">
+                    <!-- Trocamos 'grid' por 'flex flex-wrap' e adicionamos 'justify-center' -->
+                    <div class="flex flex-wrap justify-center gap-12 max-w-4xl mx-auto">
+                        
+                        <!-- Para cada item: definimos a largura baseada nas colunas que você tinha -->
+                        <!-- w-full (mobile) | sm:w-[calc(50%-1.5rem)] (2 colunas) | lg:w-[calc(33.333%-2rem)] (3 colunas) -->
+                        
+                        <!-- Item 1 -->
+                        <div class="text-center group w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-2rem)]">
+                            <div class="relative w-40 h-40 mx-auto rounded-full bg-gray-100 overflow-hidden mb-6 flex items-center justify-center text-gray-400 shadow-md">
+                                <i data-lucide="user" class="w-10 h-10 absolute"></i>
+                                <img src="https://zxn6wl55cd.ufs.sh/f/IaHBuKP5IroYbpxFEWKin0DsUN7TrPGALkYJqHWCmSvhEOga" alt="Bruna Bernardino" class="w-full h-full object-cover relative z-10 opacity-0 transition-opacity" onload="this.classList.remove('opacity-0')">
+                            </div>
+                            <h3 class="font-serif text-xl font-bold text-brand-900">Bruna Bernardino</h3>
+                            <p class="text-brand-600 mb-3 text-sm">Produtora Editorial pós-graduada, atua há 6 anos no mercado editorial, Diretora de Contratos do Estúdio.</p>
+                        </div>
+                        
+                        <!-- Item 2 -->
+                        <div class="text-center group w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-2rem)]">
+                            <div class="relative w-40 h-40 mx-auto rounded-full bg-gray-100 overflow-hidden mb-6 flex items-center justify-center text-gray-400 shadow-md">
+                                <i data-lucide="user" class="w-10 h-10 absolute"></i>
+                                <img src="https://zxn6wl55cd.ufs.sh/f/IaHBuKP5IroYf2hDNhEvUKoGzpqxa84OdT0isJwjPWMNbDgH" alt="Caique Felipe Serafim" class="w-full h-full object-cover relative z-10 opacity-0 transition-opacity" onload="this.classList.remove('opacity-0')">
+                            </div>
+                            <h3 class="font-serif text-xl font-bold text-brand-900">Caique Felipe Serafim</h3>
+                            <p class="text-brand-600 mb-3 text-sm">Formado em Produção editorial, designer gráfico há mais de 15 anos, Diretor Editorial do estúdio.</p>
+                        </div>
+                    
+                        <!-- Item 3 -->
+                        <div class="text-center group w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-2rem)]">
+                            <div class="relative w-40 h-40 mx-auto rounded-full bg-gray-100 overflow-hidden mb-6 flex items-center justify-center text-gray-400 shadow-md">
+                                <i data-lucide="user" class="w-10 h-10 absolute"></i>
+                                <img src="https://zxn6wl55cd.ufs.sh/f/IaHBuKP5IroY6smF8UbvSEnHBAso47p0Gg13aJ9QTcK2qXDb" alt="Cleber Gomes" class="w-full h-full object-cover relative z-10 opacity-0 transition-opacity" onload="this.classList.remove('opacity-0')">
+                            </div>
+                            <h3 class="font-serif text-xl font-bold text-brand-900">Cleber Gomes</h3>
+                            <p class="text-brand-600 mb-3 text-sm">Quadrinista e roteirista com formação em Cinema Digital e Animação, é Redator Chefe do Estúdio.</p>
+                        </div>
+                    
+                        <!-- Item 4 (Ficará centralizado na 2ª linha no desktop) -->
+                        <div class="text-center group w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-2rem)]">
+                            <div class="relative w-40 h-40 mx-auto rounded-full bg-gray-100 overflow-hidden mb-6 flex items-center justify-center text-gray-400 shadow-md">
+                                <i data-lucide="user" class="w-10 h-10 absolute"></i>
+                                <img src="https://zxn6wl55cd.ufs.sh/f/IaHBuKP5IroYeQk2ayLqUEji9xs830FZCQOkHPI6zTAm72YL" alt="Raphaela Hardt" class="w-full h-full object-cover relative z-10 opacity-0 transition-opacity" onload="this.classList.remove('opacity-0')">
+                            </div>
+                            <h3 class="font-serif text-xl font-bold text-brand-900">Raphaela Hardt</h3>
+                            <p class="text-brand-600 mb-3 text-sm">Formada em Sistemas da Informação, desenvolvedora de software há mais de 20 anos e Diretora de TI do estúdio.</p>
+                        </div>
+                    
+                        <!-- Item 5 (Ficará centralizado na 2ª linha no desktop) -->
+                        <div class="text-center group w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-2rem)]">
+                            <div class="relative w-40 h-40 mx-auto rounded-full bg-gray-100 overflow-hidden mb-6 flex items-center justify-center text-gray-400 shadow-md">
+                                <i data-lucide="user" class="w-10 h-10 absolute"></i>
+                                <img src="https://zxn6wl55cd.ufs.sh/f/IaHBuKP5IroYNoJOchzSpQvTGWwVNqIlzgO36E2mcdi75JXF" alt="Robert Reis" class="w-full h-full object-cover relative z-10 opacity-0 transition-opacity" onload="this.classList.remove('opacity-0')">
+                            </div>
+                            <h3 class="font-serif text-xl font-bold text-brand-900">Robert Reis</h3>
+                            <p class="text-brand-600 mb-3 text-sm">Professor de inglês, com mais de 10 anos de experiência em projetos de coletivos sociais, é Diretor de Produção e Estratégia do Estúdio.</p>
+                        </div>
                     </div>
-                    <h3 class="font-serif text-xl font-bold text-brand-900">Nome do Profissional</h3>
-                    <p class="text-brand-600 mb-3">Cargo / Função</p>
-                </div>
-                
-                <!-- Membro 2 -->
-                <div class="text-center group">
-                    <div class="relative w-40 h-40 mx-auto rounded-full bg-gray-100 overflow-hidden mb-6 flex items-center justify-center text-gray-400 shadow-md">
-                        <i data-lucide="user" class="w-10 h-10 absolute"></i>
-                        <img src="URL_FOTO_EQUIPE_2" alt="Membro da Equipe" class="w-full h-full object-cover relative z-10 opacity-0" onload="this.classList.remove('opacity-0')">
-                    </div>
-                    <h3 class="font-serif text-xl font-bold text-brand-900">Nome do Profissional</h3>
-                    <p class="text-brand-600 mb-3">Cargo / Função</p>
-                </div>
-
-                <!-- Membro 3 -->
-                <div class="text-center group">
-                    <div class="relative w-40 h-40 mx-auto rounded-full bg-gray-100 overflow-hidden mb-6 flex items-center justify-center text-gray-400 shadow-md">
-                        <i data-lucide="user" class="w-10 h-10 absolute"></i>
-                        <img src="URL_FOTO_EQUIPE_3" alt="Membro da Equipe" class="w-full h-full object-cover relative z-10 opacity-0" onload="this.classList.remove('opacity-0')">
-                    </div>
-                    <h3 class="font-serif text-xl font-bold text-brand-900">Nome do Profissional</h3>
-                    <p class="text-brand-600 mb-3">Cargo / Função</p>
-                </div>
-            </div>
+                    
         </div>
     </section>
 
-    <!-- Contato -->
     <section id="contato" class="py-20 bg-brand-900 text-white relative overflow-hidden">
         <div class="absolute top-0 right-0 w-64 h-64 bg-brand-600 rounded-full mix-blend-multiply filter blur-3xl opacity-50 transform translate-x-1/2 -translate-y-1/2"></div>
         <div class="absolute bottom-0 left-0 w-64 h-64 bg-brand-500 rounded-full mix-blend-multiply filter blur-3xl opacity-50 transform -translate-x-1/2 translate-y-1/2"></div>
@@ -400,14 +435,16 @@
             <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 md:p-12 border border-white/20 inline-block w-full max-w-xl mx-auto shadow-2xl">
                 <i data-lucide="mail" class="w-12 h-12 mx-auto text-brand-200 mb-4"></i>
                 <h3 class="text-2xl font-medium mb-2">Envie um e-mail para:</h3>
-                <a href="mailto:contato@estudiogdi.com.br" class="text-3xl md:text-4xl font-bold text-white hover:text-brand-200 transition-colors ">
-                    contato@estudiogdi.com.br
-                </a>
+                <a href="mailto:contato@estudiogdi.com.br" 
+   class="text-[clamp(1rem,5.5vw,2.25rem)] md:text-4xl font-bold text-white hover:text-brand-200 transition-colors whitespace-nowrap block">
+   contato@estudiogdi.com.br
+</a>
+                
+
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-white text-gray-600 py-12 border-t border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="flex items-center gap-2">
@@ -419,7 +456,6 @@
         </div>
     </footer>
 
-    <!-- Initialize Icons & Scripts -->
     <script>
         lucide.createIcons();
 
